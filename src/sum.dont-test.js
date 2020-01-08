@@ -96,3 +96,41 @@ test('the fetch fails with an error', async () => {
   }
 });
  */
+
+ /**
+  * Repeating setup for many test we use the beforeEach and afterEach method for teardown
+  * I feel personally that test should be done in grouping so I don't see myself 
+  * doing using these often.
+  * One time setup:
+  *   We use beforeAll and afterAll methods
+  *   the following code show the flow of execution
+  */
+ /**
+ * there are also describe blocks,
+ * this is like a grouping of tests. You can 
+ * do beforeAll, afterAll etc inside describe blocks 
+ */
+ beforeAll(() => console.log('1 - beforeAll'));
+afterAll(() => console.log('1 - afterAll'));
+beforeEach(() => console.log('1 - beforeEach'));
+afterEach(() => console.log('1 - afterEach'));
+test('', () => console.log('1 - test'));
+describe('Scoped / Nested block', () => {
+  beforeAll(() => console.log('2 - beforeAll'));
+  afterAll(() => console.log('2 - afterAll'));
+  beforeEach(() => console.log('2 - beforeEach'));
+  afterEach(() => console.log('2 - afterEach'));
+  test('', () => console.log('2 - test'));
+});
+
+/**
+ * A piece of advice from the developers 
+ * if a test is failing you can run on that test to see if any other 
+ * test externally is making it fail
+ * Example:
+ * 
+ */
+
+test.only('this will be the only test that runs', () => {
+  expect(true).toBe(false);
+});
